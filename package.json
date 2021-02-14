@@ -1,0 +1,1 @@
+    "lint": "eslint --fix --ext .js,.ts,.json .",
