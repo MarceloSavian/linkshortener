@@ -17,9 +17,6 @@ router.post(
   }
 )
 
-router.get(
-  '/:id',
-  new LinkShortenedController().redirectURL
-)
+router.get('/:id', new LinkShortenedController().redirectURL)
 
 export default router

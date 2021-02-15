@@ -1,16 +1,16 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, Index } from 'typeorm'
 
 @Entity()
 export class LinkShortened {
   @PrimaryGeneratedColumn()
   id: number
-  @Column('text',{nullable:false})
+  @Column('text', { nullable: false })
   link: string
-  @Column('text',{nullable:false})
+  @Index()
+  @Column('text', { nullable: false })
   token: string
-  @Column('date',{nullable:false})
+  @Column('date', { nullable: false })
   expireAt: Date
-  @Column('date',{nullable:false})
+  @Column('date', { nullable: false })
   createAt: Date
 }
-
