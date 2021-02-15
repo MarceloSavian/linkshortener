@@ -3,6 +3,8 @@
 ## Descrição do Projeto
 <p>Este projeto tem como objetivo fazer o encurtamento de links enviados para a api</p>
 
+<p>Os links enviados tem duração de 100 dias</p>
+
 ## Instalação do projeto Local
 <p>Para rodar o projeto local, é necessario ter instalado o POSTGRES</p>
 
