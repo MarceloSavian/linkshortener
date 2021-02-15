@@ -1,6 +1,5 @@
 import 'dotenv/config'
 import cors from 'cors'
-import helmet = require('helmet')
 import * as bodyParser from 'body-parser'
 import compression = require('compression')
 import express from 'express'
@@ -14,16 +13,18 @@ import swagger from '../middlewares/apiDocs'
 //Routes
 import LinkShortenedRoutes from '../services/linkshortened/LinkShortenedRoutes'
 
-const logger = winston.createLogger(Config.getInstace().settings.log)
+const settings = Config.getInstace().settings
+
+const logger = winston.createLogger(settings.log)
 const app: express.Application = express()
 
 export default class Server {
   private envConfig: any
   private databaseConfig: any
 
-  constructor(config: Config) {
-    this.envConfig = config.settings.env
-    this.databaseConfig = config.settings.database
+  constructor() {
+    this.envConfig = settings.env
+    this.databaseConfig = settings.database
   }
 
   public init(): any {
@@ -35,7 +36,6 @@ export default class Server {
 
   //Middlewares da aplicação
   private addMiddlewares() {
-    app.use(helmet())
     app.use(cors())
     app.use(express.json())
     app.use(bodyParser.json())

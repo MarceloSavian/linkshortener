@@ -3,7 +3,7 @@ export default {
   info: {
     version: '1.0.0',
   },
-  host: 'localhost:4000',
+  host: '54.162.8.45:4000',
   schemes: ['http'],
   produces: ['application/json'],
   paths: {

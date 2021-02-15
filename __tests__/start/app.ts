@@ -1,12 +1,16 @@
 import request from 'supertest'
-import app from '../../src/start/app'
+const baseURL = 'http://54.162.8.45:4000'
 
 describe('Route testing', () => {
-  it('Should return an http 200 and a "message" property (route: GET /)', async () => {
-    const res = await request(app).get('/')
+  it('Deve retornar http 200 e a url encurtada (route: POST /)', async () => {
+    const res = await request(baseURL).post('/encurtador').send({ url: 'http://wisereducacao.com' })
 
     expect(res.status).toEqual(200)
-    expect(res.body).toHaveProperty('message')
+    expect(res.body).toHaveProperty('newURL')
   })
-  // A validação do retorno 404 irei deixar como desafio
+  it('Deve retornar http 404 e a url encurtada (route: GET /)', async () => {
+    const res = await request(baseURL).get('/testeurlerrada')
+
+    expect(res.status).toEqual(404)
+  })
 })
